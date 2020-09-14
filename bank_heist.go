@@ -46,6 +46,31 @@ func main() {
 	We still need to make it out with the money without getting caught by any of the bank's
 	  security.  Sensory alarms (lasers), security cameras, extra guards, cops, et cetera
 	 */
+	leftSafely := rand.Intn(5)
+	if (isHeistOn) {
+		switch leftSafely {
+		case 0:
+			isHeistOn = false
+			fmt.Println("You took too long and tripped the temperature deviation detection system!")
+			fmt.Println("Better luck next time.")
+		case 1:
+			isHeistOn = false
+			fmt.Println("Smile! You were caught on camera.")
+			fmt.Println("I didn't know you were a rookie. Try again.")
+		case 2:
+			isHeistOn = false
+			fmt.Println("You were discovered by a guard you didn't know was onsite.")
+			fmt.Println("Count accurately next time.")
+		default:
+			isHeistOn = true
+			fmt.Println("You made it! Start the getaway car!")
+		}
+	}
+	// Checks if the heist was a success and tells us how much we got away with
+	if (isHeistOn) {
+		amtStolen := 10000 + rand.Intn(1000000)
+		fmt.Printf("Checking the bag, you count $%d!\n", amtStolen)
+	}
 
 	// keeps track of whether or not the heist is on
 	fmt.Println("The heist is currently a Go: ", isHeistOn)
